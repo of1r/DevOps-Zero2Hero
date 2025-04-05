@@ -25,9 +25,16 @@ Here are the most commonly used Dockerfile instructions used to build our image:
 | `RUN` | Executes a command during image build. Example: `RUN npm install` installs dependencies. |
 | `EXPOSE` | Documents which port the container will use. Example: `EXPOSE 3000` shows that the app will listen on port 3000. |
 | `CMD` | Specifies the default command to run when the container starts. Example: `CMD ["npm", "start"]` runs the app. |
+| `ENTRYPOINT` | Sets the main command to run in the container. Unlike `CMD`, this cannot be easily overridden when the container starts. Example: `ENTRYPOINT ["nginx", "-g", "daemon off;"]` ensures NGINX runs as the main process. |
 
 ---
+## Prerequisites
+Before you begin, ensure you have the following installed:
+- 🖥️ [Docker for Windows](https://www.docker.com/products/docker-desktop/)
+- 🐧 [Docker for Linux](https://docs.docker.com/engine/install/)
+- 🔡 Git (for cloning the repo)
 
+---
 ## 🧪 Example Dockerfile
 ```Dockerfile
 # Use the official NGINX image
@@ -56,10 +63,19 @@ docker build -t my-nginx .
 ```bash
 docker run -d -p 8080:80 my-nginx
 ```
-
 Now visit [http://localhost:8080](http://localhost:8080) in your browser — you should see the default NGINX welcome page.
+---
 
+### Stop the Container
 
+🛑 Stop the Container
+```bash
+docker ps
+```
+Find the CONTAINER ID or name from the output, then:
+```bash
+docker stop <container_id_or_name>
+```
 ---
 
 ## ✅ Summary
