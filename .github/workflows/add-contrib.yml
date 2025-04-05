@@ -38,7 +38,6 @@ jobs:
 
       - name: Add author to CONTRIBUTORS.md
         if: steps.check_contributor.outputs.found == 'false'
-        ## NOTE: Should decide on a tempalte for the contributors list
         run: |
           AUTHOR="${{ steps.get_author.outputs.author }}"
           echo "- [@$AUTHOR](https://github.com/$AUTHOR)" >> CONTRIBUTORS.md
