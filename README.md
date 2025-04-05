@@ -5,10 +5,14 @@
 - The project will contain DevOps Learning labs.
 
 ---
+![](resources/images/cover.png)
+---
 
 ### Table of Contents 
-- [Table of Contents](#table-of-contents)
-- [How to contribute to this project?](#how-to-contribute-to-this-project)
+
+- [](#)
+  - [Table of Contents](#table-of-contents)
+  - [How to contribute to this project?](#how-to-contribute-to-this-project)
 
 ---
 
@@ -36,10 +40,14 @@
   - Commit the changes.
   - Push the changes to your forked repository.
   - Create a pull request to the main repository.
+  - Add yourself to the list of contributors.
+  - Follow the instructions in the pull request to merge your changes.
   - Wait for the project maintainers to review and merge your pull request.
 
-- Please update the the following [GoogleSheet](https://docs.google.com/spreadsheets/d/19snmJxRJ0DL7ZhYtkXrK_3eYeRqAtf5Qeg_D6uakSTo/edit?usp=sharing) to track the progress of your tasks.
-  https://docs.google.com/spreadsheets/d/19snmJxRJ0DL7ZhYtkXrK_3eYeRqAtf5Qeg_D6uakSTo/edit?usp=sharing
+---
+
+- Feel free to contribute to the project
+- Use the [discussions](https://github.com/nirgeier/DevOps-Zero2Hero/discussions) tab to discuss the project.
 
 Thank it. AS simple as that!
 
