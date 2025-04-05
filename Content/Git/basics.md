@@ -1,30 +1,29 @@
 
 
-See the Git documentation for more info: 
+See the Git documentation for more info: [Git - Documentation](https://git-scm.com/doc)
 
-[Git - Documentation](https://git-scm.com/doc)
-
-### What Is Git?
+# What Is Git?
 
 
 >    💡  Git is a **version control system** that   helps users **track changes** in their files, collaborate efficiently, and revert to previous versions if needed. It also ensures that multiple people can work on the same project without conflicts.
 
+<br>
 
 
 ![image.png](resources/git-work-flow.png)
 
-## Repositories
+# Repositories
     
-### What’s a repository?
+## What’s a repository?
 
 A repository (repo) is a storage location where all the files, history, and version tracking information for a project are kept.
 
-#### Git has 2 repositories types:
+## Git has 2 repositories types:
 
 1. **Local repository** - Stored on your own machine.
 2. **Remote repository** - Hosted in a git server.
 
-#### Local Repository - Consists of 3 stages
+### Local Repository - Consists of 3 stages
 
 **1. Working stage**
 - This is where you **create, edit, and modify files**.
@@ -38,19 +37,20 @@ A repository (repo) is a storage location where all the files, history, and vers
 - Where **committed changes** are stored permanently.
 - Every commit acts as a **snapshot** of the project at a specific time.
     
+---
 
-
-### Basic Commands
+## Basic Commands
 - `git init` - Initialize a new Git repository in your working directory
     
     A GIT “Repo” is a workspace which tracks and manages files within a folder.
     
 - `git status` - Reports the status of a Repo
 - `git add file[s]` - Adds a file to the staging area
+
 **Commit Commands**
-    - `git commit -m "message"` - Record changes to the repository with a message
-    - `git commit --amend` - Redoes the previous commit.
-    - `git log` - Shows commit history for the given Repo.
+- `git commit -m "message"` - Record changes to the repository with a message
+- `git commit --amend` - Redoes the previous commit.
+- `git log` - Shows commit history for the given Repo.
 
   **Ignoring Files**
     
@@ -61,7 +61,7 @@ A repository (repo) is a storage location where all the files, history, and vers
 
 
 
-#### A  step by step
+### A  step by step
 1. First, initialize a repository by going to the project folder and initializing git:
 
     `git init`

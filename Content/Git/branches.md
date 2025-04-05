@@ -15,12 +15,16 @@ In git we are always working on a branch, the default one is `master` .
 - `git switch -c branch-name` - Creates a new branch and switches to it.
 - `git branch -d branch name` - Deletes the specified branch, you can’t delete a branch if you’re in it.
 - `git branch -m new-name` - Renames the branch, you have to be on the the branch to rename it.
+<br>
 
 ##### Switching Branches With Unstaged Changes
-    
+
 >    💡 When you have unstage changes they will come with you to the branches you switch to, if you have uncommitted changes git will yell at you.
 
+<br>
+
 ***
+
 
 ## Merging
     
@@ -46,7 +50,7 @@ We merge branches, not specific commits. And we always merge to the current head
 4. Add the changes and make a commit.
 
 ---
-### diff
+## diff
 
 Shows changes between commits, branches, files, the working directory and more.
     
