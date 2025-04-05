@@ -37,8 +37,9 @@
 
 - Contribute to the project.
   - Make changes locally on your local machine (clone).
-  - Commit the changes.
-  - Push the changes to your forked repository.
+  - create a new branch (git checkout -b your-branch-name)
+  - Commit the changes. (git add . followd by: git commit -m "Describe your changes here")
+  - Push the changes to your forked repository. (git push origin your-branch-name)
   - Create a pull request to the main repository.
   - Add yourself to the list of contributors.
   - Follow the instructions in the pull request to merge your changes.
