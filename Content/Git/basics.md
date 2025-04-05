@@ -7,7 +7,7 @@ See the Git documentation for more info:
 ### What Is Git?
 
 
-    💡  Git is a **version control system** that helps users **track changes** in their files, collaborate efficiently, and revert to previous versions if needed. It also ensures that multiple people can work on the same project without conflicts.
+>    💡  Git is a **version control system** that   helps users **track changes** in their files, collaborate efficiently, and revert to previous versions if needed. It also ensures that multiple people can work on the same project without conflicts.
 
 
 
