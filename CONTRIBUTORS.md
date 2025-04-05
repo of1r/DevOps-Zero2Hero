@@ -30,3 +30,4 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </div>
 
 ---
+- [@danirdd92](https://github.com/danirdd92)
