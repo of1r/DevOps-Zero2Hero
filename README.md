@@ -13,6 +13,8 @@
 - [](#)
   - [Table of Contents](#table-of-contents)
   - [How to contribute to this project?](#how-to-contribute-to-this-project)
+  - [Contribution sample](#contribution-sample)
+    - [Fork the repository](#fork-the-repository)
 
 ---
 
@@ -38,12 +40,41 @@
 - Contribute to the project.
   - Make changes locally on your local machine (clone).
   - create a new branch (git checkout -b your-branch-name)
-  - Commit the changes. (git add . followd by: git commit -m "Describe your changes here")
+  - Commit the changes. (git add . followed by: git commit -m "Describe your changes here")
   - Push the changes to your forked repository. (git push origin your-branch-name)
   - Create a pull request to the main repository.
   - Add yourself to the list of contributors.
   - Follow the instructions in the pull request to merge your changes.
   - Wait for the project maintainers to review and merge your pull request.
+
+### Contribution sample
+
+#### Fork the repository
+
+- Click on the `Fork` and fork this project to your GitHub account.  
+  https://github.com/nirgeier/DevOps-Zero2Hero/fork
+- Clone the forked repository to your local machine.
+  ```sh
+  $ git clone git@github.com:<your-account-username>/DevOps-Zero2Hero.git
+  ```
+- Create branch for your changes.
+  ```sh
+  $ git checkout -b <your-branch-name>
+  ```
+- Make changes locally on your local machine (clone).
+- Add the changes to your staging area
+  ```sh
+  $ git add .
+  ```
+- Commit the changes
+  ```sh 
+  $ git commit -m "Describe your changes here"
+  ```
+- Push the changes to your forked repository.
+  ```sh
+  $ git push origin <your-branch-name>
+  ```
+- Create a pull request to the main repository.
 
 ---
 
