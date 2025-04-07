@@ -10,4 +10,9 @@
 - Supports scripts that span many regions - for example ec2 instance we can use in each region his own AMI
 
 ### Disadventages
+- Terraform saves the configuration on state file if the file is corrupted it can lead to resource managment issues
+- Terraform may not support some resources of their latest features
+- No error handling so you need to debug by yourself the issues
+- While Terraform does provide ways to manage dependencies between resources, complex dependencies across multiple modules or       environments can become difficult to manage
 
+### Basic therms on terraform
