@@ -1,51 +1,60 @@
-# The following readme will explain about terraform, use cases and commands.
-## What is it terraform?
- terraform its an IAC - infrastructure as a code that gives the opportunity to manage your infra using a simple code
- terraform supports multiple providers for example: AWS,GCP,Azure,VMware and more
-### Adventages
-- Gives the abillity to work as a team (lock the state when applying changes)
-- Supports a varity of cloud providers
-- Clear offical documantation for most use cases and examples
-- Create/Destroy resources in one click
-- Supports scripts that span many regions - for example ec2 instance we can use in each region his own AMI
+# Terraform README
 
-### Disadventages
-- Terraform saves the configuration on state file if the file is corrupted it can lead to resource managment issues
-- Terraform may not support some resources of their latest features
-- No error handling so you need to debug by yourself the issues
-- While Terraform does provide ways to manage dependencies between resources, complex dependencies across multiple modules or       environments can become difficult to manage
+The following README will explain Terraform, its use cases, and commands.
 
-### Basic therms in terraform
-- The extention of the file should be .tf for terraform usage  naming isnt mandatory but recommended to work with the following way:
-provider.tf - for provider configuration
-main.tf - primary configuration file contains all infrastrcture resources
-variables.tf - definition of all variables 
-outputs.tf - display values or use them for other configurations
-- modules - Create multiple resources using modules you can use the offical modules that created by the providers and you also can create your own module (if you want to create specific resources and not what created with the official module) 
-example using of using a module, this will create a bucket in s3 on aws with the name test-bucket
-```
+## What is Terraform?
+
+Terraform is an **Infrastructure as Code (IaC)** tool that allows you to manage your infrastructure using simple code. Terraform supports multiple cloud providers, such as AWS, GCP, Azure, VMware, and more.
+
+### Advantages
+- **Collaboration**: It allows teams to work together (locks the state when applying changes).
+- **Multi-cloud Support**: Terraform supports a variety of cloud providers.
+- **Official Documentation**: Terraform has clear and comprehensive documentation for most use cases and examples.
+- **Create/Destroy Resources**: Easily create or destroy resources with a single command.
+- **Cross-region Infrastructure**: You can create infrastructure in multiple regions (e.g., EC2 instances in different regions with their respective AMIs).
+
+### Disadvantages
+- **State File Management**: Terraform saves configuration in a state file. If the file becomes corrupted, it can lead to resource management issues.
+- **Limited Resource Support**: Some newer features or resources may not be immediately supported by Terraform.
+- **No Built-in Error Handling**: Terraform doesn’t automatically handle errors, requiring you to debug issues manually.
+- **Complex Dependencies**: Although Terraform manages dependencies, complex inter-module or inter-environment dependencies can become hard to manage.
+
+### Basic Terminology in Terraform
+
+- **File Extensions**: Terraform configuration files use the `.tf` extension. While naming files is not mandatory, it is recommended to follow this naming convention:
+  - `provider.tf` – For provider configuration.
+  - `main.tf` – The primary configuration file that contains all infrastructure resources.
+  - `variables.tf` – Defines all variables.
+  - `outputs.tf` – Displays values or uses them for other configurations.
+
+- **Modules**: A module is a container for multiple resources. You can use official modules provided by the providers or create your own. For example, using a module to create an S3 bucket in AWS:
+
+```hcl
 module "s3-bucket" {
   bucket = "test-bucket"
-  source  = "terraform-aws-modules/s3-bucket/aws"
+  source = "terraform-aws-modules/s3-bucket/aws"
   version = "4.6.0"
 }
 ```
-- variables - Gives the abillity to configure them in one place and not repeat clear text definitions on your code you just need to call the variable you want.
-example of variable usage
+- Variables: Variables allow you to configure values in one place instead of hardcoding them in your code. You just need to reference the variable wherever required.
+Example of varible usage:
 ```
 variable "image_id" {
   type        = string
-  description = "The id of the machine image (AMI) to use for the server."
+  description = "The ID of the machine image (AMI) to use for the server."
 }
+
 imageid = var.image_id
+
 ```
-- outputs - Gives the abillity to display values or use them on other resources
-example:
+- Outputs: Outputs allow you to display values or pass them to other resources.
+Example of output usage:
 ```
 output "instance_public_ip" {
   value       = aws_instance.example.public_ip
   description = "The public IP of the EC2 instance"
 }
+
 resource "aws_security_group" "example" {
   name        = "example-sg"
   description = "Allow SSH from EC2 instance"
@@ -58,8 +67,8 @@ resource "aws_security_group" "example" {
   }
 }
 ```
-- provider - where you need to define all the required information for terraform to connect to your provider(region,access key and secret keys,) where do you want to save the state(s3 - using dynamodb to lock the state)
-example:
+- Provider: The provider block contains the information necessary for Terraform to connect to your cloud provider (region, access key, secret key, etc.) and manage resources there. You can also define where to store the Terraform state (e.g., S3 with DynamoDB for state locking).
+Example of provider configuration:
 ```
 provider "aws" {
   region     = "us-west-2"
@@ -67,30 +76,24 @@ provider "aws" {
   secret_key = "my-secret-key"
 }
 ```
-- resource - mainly as a part of modules can be created seperatly without being a part of any module
-- here is an example:
+- Resource: A resource is a component managed by Terraform. Resources can be created separately or as part of a module.
+Example of resource usage:
 ```
 resource "azurerm_resource_group" "jacks-rg" {
   name     = "jacks-rg"
   location = "UK South"
 }
 ```
-### Important commands
-On each folder before applying resources you need to install the plugins the requires for the terraform files so you need to run on the first time(if you change the location of the state file you will need to run init again) the following command:
+### Important Terraform Commands
+Before applying any resources, you need to install the required plugins for the Terraform configuration files. This is done by running the following command (if you change the state file location, you will need to run terraform init again):
 ```
 terraform init
 ```
-Before you apply the changes you can view what affects your configuration files will do to the infrastructure, what should be create, destroy, changes etc(to plan the changes)
-For that you will use
-```
-terraform plan
-```
-When you saw the exceution of the plan results you now can apply the changes(this command do terraform plan and apply together)
-you will need to approve that by writing yes/no
+Terraform Apply: After reviewing the plan, you can apply the changes. This will execute the plan and apply the changes to your infrastructure. You will be prompted to approve the changes by typing yes or no:
 ```
 terraform apply
 ```
-To destroy resources you will need to write the following command and apporve that  with yes/no answer
+Terraform Destroy: To destroy the resources managed by Terraform, run the following command. You will need to approve the destruction by typing yes or no:
 ```
 terraform destroy
 ```
