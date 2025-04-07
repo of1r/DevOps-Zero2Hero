@@ -76,6 +76,19 @@ provider "aws" {
   secret_key = "my-secret-key"
 }
 ```
+To use S3 with dynamodb lock for state file please create a dynamodb table with a name of the table and partition key with the value "LockID"
+Notice - variables are not allowed to use on the following usage everything should be in clear text
+Example of using S3 to store the state file and lock it when applying changes using dynamodb table
+```
+terraform {
+  backend "s3" {
+    bucket = "mybucket"
+    key    = "path/to/my/keyname.tfstate"
+    region = "us-east-1"
+    dynamodb_table = "dynamo-db-table-name"
+  }
+}
+```
 - Resource: A resource is a component managed by Terraform. Resources can be created separately or as part of a module.
 Example of resource usage:
 ```
@@ -89,9 +102,18 @@ Before applying any resources, you need to install the required plugins for the 
 ```
 terraform init
 ```
+Terraform plan:The terraform plan command in Terraform is used to generate and show an execution plan, which describes what actions Terraform will take to reach the desired state specified in the configuration files. It provides a preview of what will happen if you apply the configuration.
+```
+terraform plan
+```
 Terraform Apply: After reviewing the plan, you can apply the changes. This will execute the plan and apply the changes to your infrastructure. You will be prompted to approve the changes by typing yes or no:
 ```
 terraform apply
+```
+Terraform plan execute the plan to the terminal(dry-run), to make sure you apply only the changes from plan execution you can use the following commands:
+```
+terraform plan -out=out.plan
+terraform apply out.plan
 ```
 Terraform Destroy: To destroy the resources managed by Terraform, run the following command. You will need to approve the destruction by typing yes or no:
 ```
