@@ -15,4 +15,15 @@
 - No error handling so you need to debug by yourself the issues
 - While Terraform does provide ways to manage dependencies between resources, complex dependencies across multiple modules or       environments can become difficult to manage
 
-### Basic therms on terraform
+### Basic therms in terraform
+- The extention of the file should be .tf for terraform usage  naming isnt mandatory but recommended to work with the following way: 
+- modules - Create multiple resources using modules you can use the offical modules that created by the providers and you also can create your own module (if you want to create specific resources and not what created with the official module) 
+example using of using a module, this will create a bucket in s3 on aws with the name test-bucket
+```
+module "s3-bucket" {
+  bucket = "test-bucket"
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "4.6.0"
+}
+```
+- variables - Gives the abillity to configure them in one place and not repeat clear text definitions on your code you just need to call the variable you want recommended to use in 
