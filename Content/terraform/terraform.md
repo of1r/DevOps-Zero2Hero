@@ -110,6 +110,10 @@ Terraform Apply: After reviewing the plan, you can apply the changes. This will 
 ```
 terraform apply
 ```
+We can also apply spicific the creation for specific module or resource an example:
+```
+terraform apply --target=module.mybucketmodule
+```
 Terraform plan execute the plan to the terminal(dry-run), to make sure you apply only the changes from plan execution you can use the following commands:
 ```
 terraform plan -out=out.plan
