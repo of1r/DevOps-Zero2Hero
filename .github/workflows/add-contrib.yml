@@ -10,8 +10,6 @@ on:
       - master
 
 env:
-  CONTRIBUTOR_EXISTS: "false"
-  CONTRIBUTORS_FILE:  "CONTRIBUTORS.md"
   GIT_USER_EMAIL:     "nirgeier@gmail.com"
   GIT_USER_NAME:      "Nir Geier"
   PR_AUTHOR:          "nirgeier"
@@ -36,15 +34,7 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.ACTION_TOKEN }}
         
-      # Get the author of the PR and store in an environment variable
-      - name: Get PR author
-        id: get-author
-        run: |
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          echo "PR_AUTHOR=$PR_AUTHOR" >> $GITHUB_ENV
-          echo "PR author is $PR_AUTHOR"
-
-      - name: Check if author is already in CONTRIBUTORS.md
+      - name: Add contributor if not exists
         id: check_contributor
         run: |
           touch CONTRIBUTORS.md
@@ -53,26 +43,11 @@ jobs:
           then
             echo "Author ${{ env.PR_AUTHOR }} already exists in CONTRIBUTORS.md"
           else
-            echo "Author ${{ env.PR_AUTHOR }} not found in CONTRIBUTORS.md"
-            CONTRIBUTOR_EXISTS="false"
+            PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+            echo "Adding contributor [${{ env.PR_AUTHOR }}] to CONTRIBUTORS.md"
+            echo "- [@${{ env.PR_AUTHOR }}](https://github.com/${{ env.PR_AUTHOR }})" >> CONTRIBUTORS.md
           fi
-          # Store the output as an environment variable
-          echo "CONTRIBUTOR_EXISTS=$CONTRIBUTOR_EXISTS" >> $GITHUB_ENV
-
-      - name: Add author to CONTRIBUTORS.md
-        if: steps.check_contributor.outputs.found == 'false'
-        run: |
-          PR_AUTHOR="${{ steps.get_author.outputs.author }}"
-          echo "- [@$PR_AUTHOR](https://github.com/$PR_AUTHOR)" >> CONTRIBUTORS.md
-
-      - name: Add contributor if not exists
-        if: env.CONTRIBUTOR_EXISTS == 'false'
-        run: |
-          echo "Adding contributor [${{ env.PR_AUTHOR }}] to CONTRIBUTORS.md"
-          echo "- [@${{ env.PR_AUTHOR }}](https://github.com/${{ env.PR_AUTHOR }})" >> CONTRIBUTORS.md
-          cat CONTRIBUTORS.md
-          
-      
+        
       - name: Commit and push changes
         if: env.CONTRIBUTOR_EXISTS == 'false'
         run: |
