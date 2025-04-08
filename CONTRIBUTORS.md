@@ -1,8 +1,6 @@
 # Maintainers of the project
 
-
-  <img src="https://img.shields.io/github/forks/nirgeier/DevOps-Zero2Hero?style=social">
-  <img src="https://img.shields.io/github/stars/nirgeier/DevOps-Zero2Hero?style=social">
+  <img src="https://img.shields.io/github/forks/nirgeier/DevOps-Zero2Hero?style=social">&nbsp;<img src="https://img.shields.io/github/stars/nirgeier/DevOps-Zero2Hero?style=social">
 
 ---
 
