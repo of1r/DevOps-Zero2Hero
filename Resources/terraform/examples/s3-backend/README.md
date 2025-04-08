@@ -1,6 +1,6 @@
 # Terraform S3 Backend Example 
 
-You can find an in depth explanation of Terraform backends here -  [Content/Terraform/terraform-remote-state.md](Content/Terraform/terraform-remote-state.md)
+You can find an in depth explanation of Terraform backends here -  [Content/Terraform/terraform-remote-state.md](/Content/Terraform/terraform-remote-state.md)
 
 ## Prerequisites
 
