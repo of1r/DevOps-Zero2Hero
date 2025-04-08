@@ -4,7 +4,7 @@
 
 ---
 
-![](resources/images/cover.png)
+![](Resources/images/cover.png)
 
 ---
 

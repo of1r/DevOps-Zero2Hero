@@ -5,7 +5,7 @@
 - The project will contain DevOps Learning labs.
 
 ---
-![](resources/images/cover.png)
+![](Resources/images/cover.png)
 ---
 
 ### Table of Contents 
