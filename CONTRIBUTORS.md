@@ -30,9 +30,14 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </div>
 
 ---
+- [@nirgeier](https://github.com/nirgeier)
 - [@danirdd92](https://github.com/danirdd92)
 - [@guy-hemo](https://github.com/guy-hemo)
 - [@DanielRaphael](https://github.com/daniael12)
 - [@RanMarkovich](https://github.com/RanMarkovich)
 - [@gilenz](https://github.com/gilenz)
-- [@nirgeier](https://github.com/nirgeier)
+- [@Lielik](https://github.com/Lielik)
+- [@daniael12](https://github.com/daniael12)
+- [@guy-hemo](https://github.com/guy-hemo)
+- [@itsik-weiss](https://github.com/itsik-weiss)
+- [@yuvalbenar](https://github.com/yuvalbenar)
