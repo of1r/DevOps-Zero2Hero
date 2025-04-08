@@ -39,7 +39,7 @@ As of today, Terraform still supports using a DynamoDB table as the locking mech
 (You can easily see where this is implemented in their sources, which is pretty cool: [Last two methods in the file on this commit](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/storage/remote_terraform_backend_template/main.tf)  )
 
 bucket configuration example:
-```JSON
+```
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "my-terraform-state-bucket"
 }
@@ -63,7 +63,7 @@ resource "aws_s3_bucket_public_access_block" "tfstate_bucket" {
 ```
 
 configuration for using the created bucket as a backend:
-```json
+```
 terraform {
   backend "s3" {
     bucket = "my-terraform-state-bucket" # name of the existing bucket
@@ -86,7 +86,7 @@ You need to create the bucket first before using it in a Terraform module.
 
 After the bucket has been created, you can store the state for multiple modules in the same bucket using separate prefixes.
 
-```json
+```
 # Declare the bucket 
 resource "google_storage_bucket" "terraform_state" {
   name     = "my-terraform-state-bucket"
