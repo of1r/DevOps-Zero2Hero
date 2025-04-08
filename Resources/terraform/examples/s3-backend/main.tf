@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     bucket = "devopszero2hero-terraform-state-bucket"
     key    = "terraform.tfstate"
-    region = "ap-southeast-1"
+    region = "us-east-1"
     use_lockfile = true
   }
   required_version = ">= 1.9.0"
