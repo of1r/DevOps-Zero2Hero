@@ -74,4 +74,6 @@ terraform {
 }
 ```
 
+A working example you can provision can be found at [resources/terraform/examples/s3-backend/bootstrap](/resources/terraform/examples/s3-backend/bootstrap) in this repo
+
 ---
