@@ -76,7 +76,7 @@ provider "aws" {
   secret_key = "my-secret-key"
 }
 ```
-- Terraform block: you can use the `terraform` block to configure Terraform's behaviour. It is commonly used to define a required Terraform version, or an alternative backend ( [Read more about Terraform backends here](Content/Terraform/terraform-remote-state.md) ).
+- Terraform block: you can use the `terraform` block to configure Terraform's behaviour. It is commonly used to define a required Terraform version, or an alternative backend ( [Read more about Terraform backends here](/Content/Terraform/terraform-remote-state.md) ).
 ```
 terraform {
   required_verson = ">= major.minor.patch"
