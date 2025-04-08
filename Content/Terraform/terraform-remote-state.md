@@ -74,31 +74,4 @@ terraform {
 }
 ```
 
-### Google Cloud Storage Backend (gcs)
-Helpful docs:
-- https://developer.hashicorp.com/terraform/language/backend/gcs
-- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket.html
-- https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/storage/remote_terraform_backend_template/main.tf
-
-The `gcs` backend allows you to store Terraform state in an Google Cloud Storage Bucket.
-
-You need to create the bucket first before using it in a Terraform module.
-
-After the bucket has been created, you can store the state for multiple modules in the same bucket using separate prefixes.
-
-```
-# Declare the bucket 
-resource "google_storage_bucket" "terraform_state" {
-  name     = "my-terraform-state-bucket"
-  location = "US"
-
-  force_destroy               = false
-  public_access_prevention    = "enforced" # Restrict public unauthenticated access to the bucket
-  uniform_bucket_level_access = true
-
-  versioning {
-    enabled = true
-  }
-}
-```
-
+---
