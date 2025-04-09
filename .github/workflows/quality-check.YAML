@@ -1,4 +1,4 @@
-name: DevOps Quality Checks
+name: DevOps Quality Checks
 
 on:
   push:
@@ -26,13 +26,9 @@ concurrency:                 # cancel stale runs on the same branch
 
 jobs:
   lint:
-    name: Static analysis (matrix)
+    name: Static analysis
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    strategy:
-      fail-fast: false       # let all linters run, even if one fails
-      matrix:
-        task: [hadolint, yamllint, actionlint, kubeconform, shellcheck]
 
     steps:
       - name: Checkout repository
@@ -40,29 +36,31 @@ jobs:
 
       #––– Hadolint ––––––––––––––––––––––––––––––––––––––––––––
       - name: Hadolint
-        if: ${{ matrix.task == 'hadolint' && hashFiles('**/Dockerfile') != '' }}
+        if: ${{ hashFiles('**/Dockerfile') != '' }}
         uses: hadolint/hadolint-action@v3.1.0
         with:
           recursive: true
 
       #––– Yamllint ––––––––––––––––––––––––––––––––––––––––––––
       - name: Yamllint
-        if: ${{ matrix.task == 'yamllint' && hashFiles('**/*.yml', '**/*.yaml') != '' }}
+        if: ${{ hashFiles('**/*.yml', '**/*.yaml') != '' }}
         uses: ibiqlik/action-yamllint@v3
 
       #––– Actionlint (GitHub workflow linter) –––––––––––––––––
       - name: Actionlint
-        if: ${{ matrix.task == 'actionlint' }}
+        if: ${{ hashFiles('.github/workflows/*.yml', '.github/workflows/*.yaml') != '' }}
         uses: rhysd/actionlint@v1
+        with:
+          shell: bash
 
       #––– Kubeconform (Kubernetes schema validation) –––––––––
       - name: Kubeconform
-        if: ${{ matrix.task == 'kubeconform' && hashFiles('**/*.yml', '**/*.yaml') != '' }}
+        if: ${{ hashFiles('**/*.yml', '**/*.yaml') != '' }}
         uses: hermanbanken/kubeconform-action@v1
         with:
           options: -strict -summary
 
       #––– ShellCheck ––––––––––––––––––––––––––––––––––––––––––
       - name: ShellCheck
-        if: ${{ matrix.task == 'shellcheck' && hashFiles('**/*.sh') != '' }}
+        if: ${{ hashFiles('**/*.sh') != '' }}
         uses: ludeeus/action-shellcheck@v2
