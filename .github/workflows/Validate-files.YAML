@@ -1,0 +1,68 @@
+name: DevOps Quality Checks
+
+on:
+  push:
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/Dockerfile'
+      - '**/*.sh'
+  pull_request:
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/Dockerfile'
+      - '**/*.sh'
+  workflow_dispatch:
+
+#––– security hardening ––––––––––––––––––––––––––––––––––––––––––
+permissions:
+  contents: read            # least‑privilege token
+
+concurrency:                 # cancel stale runs on the same branch
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+#–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+jobs:
+  lint:
+    name: Static analysis (matrix)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false       # let all linters run, even if one fails
+      matrix:
+        task: [hadolint, yamllint, actionlint, kubeconform, shellcheck]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      #––– Hadolint ––––––––––––––––––––––––––––––––––––––––––––
+      - name: Hadolint
+        if: ${{ matrix.task == 'hadolint' && hashFiles('**/Dockerfile') != '' }}
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          recursive: true
+
+      #––– Yamllint ––––––––––––––––––––––––––––––––––––––––––––
+      - name: Yamllint
+        if: ${{ matrix.task == 'yamllint' && hashFiles('**/*.yml', '**/*.yaml') != '' }}
+        uses: ibiqlik/action-yamllint@v3
+
+      #––– Actionlint (GitHub workflow linter) –––––––––––––––––
+      - name: Actionlint
+        if: ${{ matrix.task == 'actionlint' }}
+        uses: rhysd/actionlint@v1
+
+      #––– Kubeconform (Kubernetes schema validation) –––––––––
+      - name: Kubeconform
+        if: ${{ matrix.task == 'kubeconform' && hashFiles('**/*.yml', '**/*.yaml') != '' }}
+        uses: hermanbanken/kubeconform-action@v1
+        with:
+          options: -strict -summary
+
+      #––– ShellCheck ––––––––––––––––––––––––––––––––––––––––––
+      - name: ShellCheck
+        if: ${{ matrix.task == 'shellcheck' && hashFiles('**/*.sh') != '' }}
+        uses: ludeeus/action-shellcheck@v2
