@@ -2,26 +2,11 @@
 
 - This file contains the tasks for the project.
 
-<details>
-<summary>Docker</summary>
-
-- Create a simple docker project with a single container that runs a simple web server.
   - [ ] Create a project skeleton
-  - [ ] Explain the main commands of Docker file
-  - [ ] Create a Docker file
-  - [ ] Create a Docker ignore file
-  - [ ] Create a Docker Compose file
-  - [ ] Add Service to docker compose file
-  - [ ] Add network to docker compose file
-  - [ ] Add volume to docker compose file
-  - [ ] Create github action for build and pushing the image to docker hub
-  - [ ] Create a detailed README.md file for the Docker labs
-
-</details>
-
-<details>
-<summary>Git</summary>
-
-- [ ] Create script for working on multiple branches
-
-</details>
+  - [ ] Add Github action for the following
+    - [X] Auto add contributors to CONTRIBUTORS.md
+    - [X] Auto update README.md with Labs content
+  - [ ] Add tools logos to resources/images/logos
+    - [ ] Download logos from here: https://www.svgrepo.com/
+    - [ ] Generate the list of Tools logos and add them to the README.md
+  

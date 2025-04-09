@@ -127,4 +127,6 @@ echo "" >> $CONTENT_LIST
 echo "---" >> $CONTENT_LIST
 echo "" >> $CONTENT_LIST
 echo "Total markdown files found: $TOTAL_FILES" >> $CONTENT_LIST
+echo '-------'
+mv $CONTENT_LIST $ROOT_FOLDER/Content/
 
