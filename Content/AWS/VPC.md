@@ -10,10 +10,10 @@ cloud resources are isolated from others while maintaining secure communication 
 
 Common AWS VPC Networking Components:
 
-Subnets: Segments of the VPC's IP address range. 
-Internet Gateway: Connects VPC to the internet. 
-NAT Gateway: Allows internet access for instances in private subnets. 
-Route Tables: Rules directing network traffic. 
-Network Access Control Lists (NACLs): Firewall controlling traffic for subnets. 
-VPC Peering: Connects two VPCs privately. 
-Elastic IP addresses: Static IPv4 addresses for your account.
+- Subnets: Segments of the VPC's IP address range. 
+- Internet Gateway: Connects VPC to the internet. 
+- NAT Gateway: Allows internet access for instances in private subnets. 
+- Route Tables: Rules directing network traffic. 
+- Network Access Control Lists (NACLs): Firewall controlling traffic for subnets. 
+- VPC Peering: Connects two VPCs privately. 
+- Elastic IP addresses: Static IPv4 addresses for your account.
