@@ -36,7 +36,6 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 - [@gilenz](https://github.com/gilenz)
 - [@Lielik](https://github.com/Lielik)
 - [@daniael12](https://github.com/daniael12)
-- [@guy-hemo](https://github.com/guy-hemo)
 - [@itsik-weiss](https://github.com/itsik-weiss)
 - [@yuvalbenar](https://github.com/yuvalbenar)
 
