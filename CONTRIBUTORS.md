@@ -4,7 +4,7 @@
 
 ---
 
-![](resources/images/cover.png)
+![](resources/images/cover-rounded.png)
 
 ---
 
@@ -29,6 +29,7 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 
 ---
 - [@nirgeier](https://github.com/nirgeier)
+
 - [@danirdd92](https://github.com/danirdd92)
 - [@guy-hemo](https://github.com/guy-hemo)
 - [@DanielRaphael](https://github.com/DanielRaphael1)
@@ -40,3 +41,6 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 - [@itsik-weiss](https://github.com/itsik-weiss)
 - [@yuvalbenar](https://github.com/yuvalbenar)
 - [@yoyobesser](https://github.com/yoyobesser)
+- [@Chadadinio](https://github.com/Chadadinio)
+- [@itayshlanger](https://github.com/itayshlanger)
+- [@eilaytal](https://github.com/eilaytal)
