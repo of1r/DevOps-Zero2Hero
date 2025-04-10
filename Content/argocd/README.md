@@ -1,5 +1,5 @@
 
-![ArgoCD Logo](../../resources/images/logos/logos_argocd.svg)
+<img src="../../resources/images/logos/logos_argocd.svg" width="75" height="75" alt="ArgoCD Logo" />
 # ArgoCD Lab
 
 Welcome to the **ArgoCD  Deployment Lab**! 🚀  
