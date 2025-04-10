@@ -14,7 +14,7 @@ ROOT_FOLDER=$(git rev-parse --show-toplevel)
 # Normalize the search directory path (remove trailing slash if present)
 LOGOS_DIR=$(realpath "$ROOT_FOLDER/resources/images/logos/")
 CONTENT_DIR=$(realpath "$ROOT_FOLDER/Content/")
-NUMBER_OF_COLUMNS=10
+NUMBER_OF_COLUMNS=8
 
 # Check if logos directory exists
 if [ ! -d "$LOGOS_DIR" ]; then
@@ -39,7 +39,13 @@ rows=$(( (total_files + $NUMBER_OF_COLUMNS - 1) / $NUMBER_OF_COLUMNS ))
 # Start markdown file
 LOGOS_FILE="logo_table.md"
 echo "<!-- LOGOS START -->" > "$LOGOS_FILE"
-echo "<div style=\"text-align: center; display: inline-block; background-color: #lightblue\">" >> "$LOGOS_FILE"
+
+# Count total number of files found
+TOTAL_FILES=$(find "$CONTENT_DIR" -type f -name "*.md" | wc -l)
+echo "Total markdown files found: $TOTAL_FILES" >> "$LOGOS_FILE"
+echo ""
+
+echo "<div style=\"text-align: center; display: inline-block;\">" >> "$LOGOS_FILE"
 echo "" >> "$LOGOS_FILE"
 
 # Create the header row
@@ -63,9 +69,7 @@ get_folder_name() {
   name_part=${filename#logos_}
   name_part=${name_part%.svg}
   
-  # Capitalize first letter
-  folder_name="$(tr '[:lower:]' '[:upper:]' <<< ${name_part:0:1})${name_part:1}"
-  echo "$folder_name"
+  echo "$name_part"
 }
 
 update_readme_with_logos() {
@@ -102,11 +106,34 @@ generate_logos(){
   for logo_file in "${logo_files[@]}"; do
     # Extract the folder name
     folder_name=$(get_folder_name "$logo_file")
+
+    # Reset total markdown files counter for each new folder
+    total_md_files=""
+
+    # Reset the folder link
+    folder_url="#"
+
+    # Check if the content directory exists and contains markdown files
+    if [ -d "$CONTENT_DIR/$folder_name" ]; then
+      
+      # Count total markdown files in the content folder
+      total_md_files=$(find "$CONTENT_DIR/$folder_name" -type f -name "*.md" | wc -l)
+    
+      # For some reason we have to trim the results
+      total_md_files="[${total_md_files#"${total_md_files%%[![:space:]]*}"}]"
+
+      # Set the folder link
+      folder_url="./$folder_name"
+
+    fi  
+    
+    # Capitalize first letter
+    folder_name="$(tr '[:lower:]' '[:upper:]' <<< ${folder_name:0:1})${folder_name:1}"
     
     # Add the image with link
-    echo -n "<a href=\"\">" >> "$LOGOS_FILE"
+    echo -n "<a href=\"./$folder_url\">" >> "$LOGOS_FILE"
     echo -n "<img src=\"../resources/images/logos/$(basename "$logo_file")\" style=\"border-radius: 20px; padding: 10px; width:75px;height:75px;\"/>" >> "$LOGOS_FILE"
-    echo -n "</a><br/> $folder_name |" >> "$LOGOS_FILE"
+    echo -n "</a><br/> $folder_name&nbsp;$total_md_files|" >> "$LOGOS_FILE"
 
     #echo -n " ![$ROOT_FOLDER/resources/images/logos/$(basename "$logo_file")]($CONTENT_DIR/$folder_name) |" >> "$LOGOS_FILE"
     
