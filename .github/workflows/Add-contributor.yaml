@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Debug
         run: |
-          if [ -n "${{ secrets.ACTION_TOKEN }}" ]; then
+          if [ -n "${{ secrets.GITHUB_TOKEN }}" ]; then
             echo "ACTION_TOKEN is set"
           else
             echo "ACTION_TOKEN is not set"
@@ -40,7 +40,7 @@ jobs:
           # Full git history needed to get proper commit info
           fetch-depth: 0
           persist-credentials: true
-          token: "${{ secrets.ACTION_TOKEN }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
         
       - name: Add contributor if not exists
         id: check_contributor

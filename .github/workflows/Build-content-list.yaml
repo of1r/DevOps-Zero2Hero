@@ -2,12 +2,10 @@ name: Build Content List
 
 on:
   # Trigger action on pull request closed
-  pull_request:
-    types: [closed]
+  push:
     # List of branches to work on
     branches:
-      - main
-      - master
+      - "main"
 
 env:
   GIT_USER_EMAIL:     "nirgeier@gmail.com"
@@ -17,8 +15,6 @@ env:
 jobs:
   build-content-list:
 
-    # Only run this job when a PR is merged (not just closed)
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     permissions:
