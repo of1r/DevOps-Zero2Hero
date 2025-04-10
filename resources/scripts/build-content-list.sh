@@ -94,7 +94,7 @@ update_readme_with_logos() {
   ESC_TEXT=$(sed -e 's/[\/&]/\\&/g' -e '$!s/$/\\/' <<< "$CONTENT")
 
    # Replace the content between the navigation comments with dynamic content
-  sed -i '' -e "/<!-- LOGOS START -->/,/<!-- LOGOS END -->/c\\
+  sed -i "/<!-- LOGOS START -->/,/<!-- LOGOS END -->/c\\
 $ESC_TEXT" "$TARGET_FILE"
 }
 
