@@ -166,6 +166,7 @@ generate_logos(){
 
   echo "Markdown table generated in '$LOGOS_FILE'"
   update_readme_with_logos
+  rm -rf $LOGOS_FILE
 
 }
 
