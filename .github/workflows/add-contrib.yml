@@ -13,6 +13,14 @@ jobs:
       contents: write
 
     steps:
+      - name: Debug
+        run: |
+          if [ -n "${{ secrets.ACTION_TOKEN }}" ]; then
+            echo "ACTION_TOKEN is set"
+          else
+            echo "ACTION_TOKEN is not set"
+          fi
+          
       - name: Checkout code
         uses: actions/checkout@v4
         with:
