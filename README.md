@@ -1,55 +1,41 @@
 <!-- omit in toc -->
 # DevOps-Zero2Hero
 
-- The aim of this project is  to create a startup project that can be used to learn the concepts of DevOps.
+- The aim of this project is to collect as many resources as possible that users can use to DevOps.
 - The project will contain DevOps Learning labs.
 
 ---
-![](resources/images/cover.png)
+
+<div align="center">
+  <img src="resources/images/cover-rounded.png" alt="DevOps-Zero2Hero" width="500">
+</div>
+
 ---
 
+<!-- omit in toc -->
 ### Table of Contents 
 
-- [](#)
-  - [Table of Contents](#table-of-contents)
-  - [How to contribute to this project?](#how-to-contribute-to-this-project)
-  - [Contribution sample](#contribution-sample)
-    - [Fork the repository](#fork-the-repository)
+- [How to contribute to this project?](#how-to-contribute-to-this-project)
+  - [Detailed instructions how to contribute](#detailed-instructions-how-to-contribute)
+
 
 ---
 
 ### How to contribute to this project?
 
-- Fork the repository.
-  - Click on the `Fork` and fork this project to your GitHub account.
-- Clone the forked repository to your local machine.
-  ```sh
-  # Clone the forked repository to your local machine
-  git clone https://github.com/<your-username>/DevOps-Zero2Hero.git
-
-  # Verify that the project is cloned successfully by checking 
-  # the files in the project directory.
-  
-  # Navigate to the project directory and verify the files.
-  cd DevOps-Zero2Hero 
-  
-  # Verify the files in the project directory.
-  git remote -v
-  ```
-
-- Contribute to the project.
+- **Contribute** to the project.
   - Make changes locally on your local machine (clone).
-  - create a new branch (git checkout -b your-branch-name)
-  - Commit the changes. (git add . followed by: git commit -m "Describe your changes here")
-  - Push the changes to your forked repository. (git push origin your-branch-name)
-  - Create a pull request to the main repository.
-  - Add yourself to the list of contributors.
+  - Create a new branch with meaningful name (git checkout -b your-branch-name)
+  - **Add & Commit** the changes. (git add . && git commit -m "Describe your changes")
+  - **Push** the changes to your forked repository. (git push origin your-branch-name)
+  - Create a **pull request** to the main repository main branch.
+  - When the PR is merged you will automatically added to the list of contributors.
   - Follow the instructions in the pull request to merge your changes.
   - Wait for the project maintainers to review and merge your pull request.
 
-### Contribution sample
+---
 
-#### Fork the repository
+#### Detailed instructions how to contribute
 
 - Click on the `Fork` and fork this project to your GitHub account.  
   https://github.com/nirgeier/DevOps-Zero2Hero/fork
@@ -78,8 +64,43 @@
 
 ---
 
-- Feel free to contribute to the project
+### Contributing guidelines
+
+1. Fork, clone and have your local copy.
+2. Open PR once you ready to push back to main
+3. Github action will auto-check if your code is qualifies to be merged back and if not you will be asked to fix it.
+
+## Contributing notes
+
+1. Top folders (topics) should start with Capital letter
+2. Content should be written in markdown and file name should be `.md`
+3. Content should b based upon the Default template with the required placeholders and include TOC
+4. GitHub action is collecting all the files and generate auto-content README file with the different topics.
+5. Images should be in the resources/images folder
+6. If you add new technology you have to edit the main README as well and add the logo + add the technology to the list
+
+## Contributing Quality
+
+- TODO: Add detailed page on how to run and text GitHub actions locally
+- Verify that your code is passing all the pre-merge checks
+
+
+## Recommended extensions for improved contribution
+
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions)
+- 
+
+---
+
 - Use the [discussions](https://github.com/nirgeier/DevOps-Zero2Hero/discussions) tab to discuss the project.
+
+---
+
+<!-- LOGOS START -->
+<!-- LOGOS END -->
+
+---
 
 Thank it. AS simple as that!
 

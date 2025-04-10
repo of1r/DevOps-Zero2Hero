@@ -40,7 +40,7 @@ jobs:
           # Full git history needed to get proper commit info
           fetch-depth: 0
           persist-credentials: true
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: "${{ secrets.ACTION_TOKEN }}"
         
       - name: Add contributor if not exists
         id: check_contributor
