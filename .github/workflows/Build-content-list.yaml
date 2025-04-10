@@ -1,4 +1,4 @@
-name: Auto-update Contributors
+name: Build Content List
 
 on:
   # Trigger action on pull request closed
@@ -18,7 +18,7 @@ jobs:
   add-contributor:
 
     # Only run this job when a PR is merged (not just closed)
-    #if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     permissions:
