@@ -15,7 +15,7 @@ env:
   PR_AUTHOR:          "nirgeier"
 
 jobs:
-  add-contributor:
+  build-content-list:
 
     # Only run this job when a PR is merged (not just closed)
     if: github.event.pull_request.merged == true
