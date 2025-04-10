@@ -1,5 +1,5 @@
 
-<img src="../resources/images/logos/logos_argocd.svg" style="border-radius: 20px; padding: 10px; width:75px;height:75px;"/></a><br/>
+![ArgoCD Logo](../../resources/images/logos/logos_argocd.svg)
 # ArgoCD Lab
 
 Welcome to the **ArgoCD  Deployment Lab**! 🚀  
