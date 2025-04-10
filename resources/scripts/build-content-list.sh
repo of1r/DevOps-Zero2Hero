@@ -93,8 +93,12 @@ update_readme_with_logos() {
   # Escape special characters AND preserve newlines for sed
   ESC_TEXT=$(sed -e 's/[\/&]/\\&/g' -e '$!s/$/\\/' <<< "$CONTENT")
 
-   # Replace the content between the navigation comments with dynamic content
-  sed -i '' -e "/<!-- LOGOS START -->/,/<!-- LOGOS END -->/c\\
+  echo $TARGET_FILE
+  ls -la $TARGET_FILE
+  echo $(id)
+
+  # Replace the content between the navigation comments with dynamic content
+  sed -i "/<!-- LOGOS START -->/,/<!-- LOGOS END -->/c\\
 $ESC_TEXT" "$TARGET_FILE"
 }
 
